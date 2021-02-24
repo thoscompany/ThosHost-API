@@ -5,10 +5,11 @@ require('thoshost_API_class.inc.php');
 
 
 //  Initiate the base for API calls
-$API = new TH_API('API_KEY', 'API_PASSWORD');
+$API = new TH_API('Z1ZTRNeD9MdZGoV9', 'WN2sPBNfjCvPRogytAi3UI5u');
 
 // Get account information
-$accData = $API->getAccount();
+$accData = $API->getAccountInfo();
+
 
 // Catch errors and retreive the correct answer and status;
 $accDetails = json_decode($accData, true);
