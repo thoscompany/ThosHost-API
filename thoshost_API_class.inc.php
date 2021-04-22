@@ -49,7 +49,7 @@ class TH_API
 			$api_array = array('API_KEY' => $this->API_KEY, 'API_PASSWORD' => $this->API_PASSWORD);
 			$POST = array_merge($api_array, $POST);
 			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL, 'https://test.thos-host.com/hooks/v1/'.$CMD.'.php');
+			curl_setopt($ch, CURLOPT_URL, 'https://thos-host.com/hooks/v1/'.$CMD.'.php');
 			curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
@@ -83,7 +83,7 @@ class TH_API
 			if($CMD == 'init')
 			{
 				$ch = curl_init();
-				curl_setopt($ch, CURLOPT_URL, 'https://test.thos-host.com/hooks/v1/init.php');
+				curl_setopt($ch, CURLOPT_URL, 'https://thos-host.com/hooks/v1/init.php');
 				curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 3);
 				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 				curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
