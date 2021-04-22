@@ -5,7 +5,7 @@ require('thoshost_API_class.inc.php');
 
 
 //  Initiate the base for API calls
-$API = new TH_API('Z1ZTRNeD9MdZGoV9', 'WN2sPBNfjCvPRogytAi3UI5u');
+$API = new TH_API('API_KEY', 'API_PASSWORD');
 
 // Get account information
 $accData = $API->getAccountInfo();

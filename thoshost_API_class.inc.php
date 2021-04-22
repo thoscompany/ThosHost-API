@@ -219,7 +219,7 @@ class TH_API
 		* Example value for $nameservers:
 		* array('ns1.thos-host.com', 'ns2.thos-host.com')
 		**/
-		return $this->call_API('registerDomain', array('domain' => $domain, $nameservers));
+		return $this->call_API('setNameservers', array('domain' => $domain, $nameservers));
 	}
 	function getVPSInfo(int $vps_id = -1)
 	{
@@ -286,6 +286,11 @@ class TH_API
 		// get dedicated server information
 		return $this->call_API('getDedicatedServerInfo', array('dedicated_server_id' => $dedicated_server_id));
 	}
+	function getDedicatedServerIPInfo(int $dedicated_server_id = -1, string $IP_address = '127.0.0.1')
+	{
+		// get dedicated server IP information
+		return $this->call_API('getDedicatedServerInfo', array('dedicated_server_id' => $dedicated_server_id, 'ip' => $IP_address));
+	}
 	function rebootDedicatedServer(int $dedicated_server_id = -1)
 	{
 		// get dedicated server information
@@ -302,22 +307,17 @@ class TH_API
 		$info_final = array_merge($dedi_array, $new_info);
 		return $this->call_API('reinstallDedicatedServer', $info_final);
 	}
-	function setRDNS(int $dedicated_server_id = -1, string $rDNS)
+	function setDedicatedServerIPrDNS(int $dedicated_server_id = -1, string $IP_address, string $rDNS)
 	{
-		// set dedicated server rDNS
-		return $this->call_API('rebootDedicatedServer', array('dedicated_server_id' => $dedicated_server_id, 'rDNS' => $rDNS));
+		// set dedicated server IP rDNS
+		return $this->call_API('setDedicatedServerIPrDNS', array('dedicated_server_id' => $dedicated_server_id, 'rDNS' => $rDNS, 'ip' => $IP_address));
 	}
-	function setHostname(int $dedicated_server_id = -1, string $hostname)
+	function setDedicatedServerHostname(int $dedicated_server_id = -1, string $hostname)
 	{
 		// set dedicated server hostname
-		return $this->call_API('setHostname', array('dedicated_server_id' => $dedicated_server_id, 'hostname' => $hostname));
+		return $this->call_API('setDedicatedServerHostname', array('dedicated_server_id' => $dedicated_server_id, 'hostname' => $hostname));
 	}
-	function setPassword(int $dedicated_server_id = -1, string $password)
-	{
-		// set dedicated server password
-		return $this->call_API('setHostname', array('dedicated_server_id' => $dedicated_server_id, 'password' => $password));
-	}
-	/* v ONLY FOR DEDIRESELLER & PARTNER PROGRAM MEMBERS v */
+	/* v ONLY FOR DEDIRESELLER PROGRAM MEMBERS v */
 	function getTickets()
 	{
 		// get account tickets
